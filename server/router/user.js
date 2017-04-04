@@ -32,7 +32,7 @@ router.post('/signup',
         const maxNum = 10000;
         const code = ('0000' + Math.floor(Math.random() * maxNum)).substr(-4)
         let user = new User({...ctx.request.body, code})
-        // await user.save()
+        await user.save()
         await mailTransport( email, code )
         const { status } = user
         ctx.status = 200

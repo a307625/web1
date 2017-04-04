@@ -3,9 +3,9 @@ import env from '../env/env.js'
 const config = {
   port: process.env.PORT || 3000,
   jwt: {
-    jwtSecret: env.jwtSecret,
-    jwtTokenExpiresIn: '5 days',
-    emailTokenExpiresIn: '1 days'
+    jwtSecret: env.jwt.jwtSecret,
+    jwtTokenExpiresIn: env.jwt.jwtTokenExpiresIn,
+    emailTokenExpiresIn: env.jwt.emailTokenExpiresIn
   },
   apiversion: 'v1',
   hostUrl: 'http://localhost:3000',
@@ -13,8 +13,8 @@ const config = {
   databaseOption: null,
   usrtID: null,
   mail: {
-    Sender: 'a307625@hotmail.com',
-    host: 'hotmail',
+    Sender: env.user,
+    host: env.host,
     port: 587,
     auth: {
       user: env.user,
