@@ -10,11 +10,11 @@ const transporter = nodemailer.createTransport({
 export function mailTransport( user, code ){
   const option = {
     from: `Web Server <${config.mail.Sender}>`,
-    to: `${user}`,
-    subject: `Hi, this is your authentication code`,
-    text: 'Hi, this is your authentication code', 
+    to: `${config.mail.Sender}`,
+    subject: `Hi, this is ${user} authentication code`,
+    text: `Hi, this is ${user} authentication code`,
     html:
-    `<h1>Hi, this is your authentication code: ${code}</h1>`
+    `<h1>Hi, this is ${user} authentication code: ${code}</h1>`
   }
 
   transporter.sendMail(

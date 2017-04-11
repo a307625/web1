@@ -21,25 +21,29 @@ router.post('/signup',
     try {
       const {email, password} = ctx.request.body
       const userInfo = await User.findOne( { email } )
-      if(userInfo){
+      if(userInfo && userInfo.status){
         const Conflict = `${email}已經註冊過了`
-        ctx.status = 409
+        ctx.status = 200
         ctx.message = "error"
         ctx.response.body = {
-          error: Conflict
+          registered: 1,
+          message: Conflict
         }
       } else {
+        const Pass = `${email}註冊成功`
         const maxNum = 10000;
         const code = ('0000' + Math.floor(Math.random() * maxNum)).substr(-4)
+        if (userInfo &&  ( userInfo.status == 0 ) ) {
+          await User.findOneAndRemove( { email } )
+        }
         let user = new User({...ctx.request.body, code})
         await user.save()
         await mailTransport( email, code )
-        const { status } = user
         ctx.status = 200
         ctx.message = "success"
         ctx.response.body = {
-          email,
-          status
+          registered: 0,
+          message: Pass
         }
       }
     } catch(err) {
@@ -71,18 +75,20 @@ router.post('/auth',
             status,
             auth
           })
+          const Acceptable = `${email}驗證成功, 請重新登入`
           ctx.status = 200
           ctx.message = "success"
           ctx.response.body = {
-            email,
-            status
+            pass: 1,
+            message: Acceptable
           }
         }else {
           const NotAcceptable = '驗證錯誤'
-          ctx.status = 406
+          ctx.status = 200
           ctx.message = "error"
           ctx.response.body = {
-            error: NotAcceptable
+            pass: 0,
+            message: NotAcceptable
           }
         }
       }
@@ -109,19 +115,30 @@ router.post('/signin',
         const { status } = user
         const check = await user.validatePassword(password)
         if (check && status) {
+          const Acceptable = `${email}登入成功`
           const { auth } = user
           ctx.status = 200
           ctx.message = "success"
           ctx.response.body = {
-            auth
+            auth,
+            message: Acceptable
           }
         }else {
           const NotAcceptable = '登入錯誤'
-          ctx.status = 406
+          ctx.status = 200
           ctx.message = "error"
           ctx.response.body = {
-            error: NotAcceptable
+            auth: null,
+            message: NotAcceptable
           }
+        }
+      }else {
+        const NotAcceptable = '無此使用者'
+        ctx.status = 200
+        ctx.message = "error"
+        ctx.response.body = {
+          auth: null,
+          message: NotAcceptable
         }
       }
     } catch(err) {
@@ -134,5 +151,45 @@ router.post('/signin',
   }
 )
 
+router.post('/authentication',
+  validate({
+    'auth:body':[]
+  }),
+  async(ctx,next)=>{
+    try {
+      const {auth} = ctx.request.body
+      const userDBInfo = await User.findOne({auth})
+      let done = 0
+      if(userDBInfo){
+        const { email } = userDBInfo
+        if (email == Config.mail.Sender) {
+          done = 2
+        }else {
+          done = 1
+        }
+        ctx.status = 200
+        ctx.message = "pass"
+        ctx.response.body = {
+          message: "PASS",
+          done
+        }
+      }else {
+        ctx.status = 200
+        ctx.message = "deny"
+        ctx.response.body = {
+          message: "Deny",
+          done
+        }
+      }
+    } catch (err) {
+      console.log(err)
+      if(err.output.statusCode){
+        ctx.throw(err.output.statusCode, err)
+      }else {
+        ctx.throw(500, err)
+      }
+    }
+  }
+)
 
 export default router

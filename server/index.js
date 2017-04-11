@@ -54,6 +54,7 @@ app.use(convert(jwt({
   path: [
     // `/EBSweb/${Config.apiversion}/manager/signup`,
     // `/${Config.apiversion}/user`,
+    '/favicon.ico',
     /^\/EBSweb\/v1\/manager/,
     // `/${Config.apiversion}/user/token`,
     // `/${Config.apiversion}/user/profile`,
@@ -72,4 +73,4 @@ app.listen(Config.port, () => {
   console.log(`listening on port ${Config.port}`)
 })
 
-export default app
+// export default app
