@@ -90,3 +90,14 @@ button{
   height: 100%;
   display:flex;
 }
+#form1{
+  border-left: solid rgba(0,0,0,0.8) 3px;
+  border-right: solid rgba(0,0,0,0.8) 3px;
+  border-top: solid rgba(0,0,0,0.8) 3px;
+  border-bottom: solid rgba(0,0,0,0.8) 3px;
+  padding: 10px;
+  font-size: 24px;
+}
+#div3{
+  padding: 10px;
+}

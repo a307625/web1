@@ -192,4 +192,91 @@ router.post('/authentication',
   }
 )
 
+router.get('/list',
+  validate({
+    'auth:query':['require', 'auth is required']
+  }),
+  async(ctx,next)=>{
+    try {
+      const { auth } = ctx.request.query
+      const userInfo = await User.findOne( { auth } )
+      let email = []
+      if (userInfo && ( userInfo.email == Config.mail.Sender )) {
+        const user = await User.find({})
+        user.forEach((data)=>{
+          email.push(data.email)
+        })
+        const Acceptable = `搜尋使用者成功`
+        ctx.status = 200
+        ctx.message = "success"
+        ctx.response.body = {
+          email,
+          message: Acceptable
+        }
+      }else {
+        const NotAcceptable = '無授權使用'
+        ctx.status = 200
+        ctx.message = "error"
+        ctx.response.body = {
+          email,
+          message: NotAcceptable
+        }
+      }
+    } catch(err) {
+      if(err.output.statusCode){
+        ctx.throw(err.output.statusCode, err)
+      }else {
+        ctx.throw(500, err)
+      }
+    }
+  }
+)
+
+router.post('/delete',
+  validate({
+    'auth:body':[],
+    'delEmail:body':[]
+  }),
+  async(ctx,next)=>{
+    try {
+      const {auth, delEmail} = ctx.request.body
+      const userDBInfo = await User.findOne({auth})
+      if(userDBInfo){
+        const { email } = userDBInfo
+        if (email == Config.mail.Sender) {
+          await User.findOneAndRemove({email: delEmail})
+          ctx.status = 200
+          ctx.message = "pass"
+          ctx.response.body = {
+            message: "PASS",
+            done: 1
+          }
+        }else {
+          ctx.status = 200
+          ctx.message = "deny"
+          ctx.response.body = {
+            message: "Deny",
+            done: 0
+          }
+        }
+
+      }else {
+        ctx.status = 200
+        ctx.message = "deny"
+        ctx.response.body = {
+          message: "Deny",
+
+        }
+      }
+    } catch (err) {
+      console.log(err)
+      if(err.output.statusCode){
+        ctx.throw(err.output.statusCode, err)
+      }else {
+        ctx.throw(500, err)
+      }
+    }
+  }
+)
+
 export default router
