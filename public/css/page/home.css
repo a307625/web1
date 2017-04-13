@@ -1,0 +1,239 @@
+<meta
+name="viewport"
+content="width=device-width;
+initial-scale=1.0;
+maximum-scale=1.0;
+user-scalable=0;"
+>
+/* v1.0 | 20080212 */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+/* remember to define focus styles! */
+:focus {
+    outline: 0;
+}
+
+/* remember to highlight inserts somehow! */
+ins {
+    text-decoration: none;
+}
+del {
+    text-decoration: line-through;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+
+
+
+body{
+  font-family: 'Helvetica', 'Arial', sans-serif;
+}
+div{
+  float:left;
+}
+
+a{
+  text-decoration:none;
+}
+#topbar, #content, #bottombar{
+  width: 100%;
+}
+#topbar{
+  height: 100px;
+  position:absolute;
+  top: 0%;
+  left: 0%;
+  right: 0%;
+}
+#content{
+  height: 100px;
+  position:absolute;
+  top:100px;
+  left: 0%;
+  right: 0%;
+}
+#bottombar{
+  height: 100px;
+  position:absolute;
+  top:200px;
+  left: 0%;
+  right: 0%;
+}
+
+
+#logo{
+  width: 10%;
+  position:absolute;
+    top:0%;
+    left:10%;
+}
+#logo:hover{
+  cursor: pointer;
+}
+#select{
+  width: 50%;
+  position:relative;
+  position:absolute;
+  top:0%;
+  left:30%;
+}
+#link{
+  width: 300px;
+  position:absolute;
+    top:0%;
+    left:40%;
+}
+
+
+
+#news, #concept, #product, #service, #stores, #contact{
+  display:block;
+  width: 15%;
+  height:50px;
+  text-align:center;
+  line-height: 70px;
+  color: rgba(0,0,0,0.4);
+  float: left;
+  font-size: 12px;
+}
+#news:hover,
+#concept:hover,
+#product:hover,
+#service:hover,
+#stores:hover,
+#contact:hover{
+  border-bottom: solid #1a1a1a 5px;
+  color: black;
+}
+#news{
+  position:absolute;
+    top:45px;
+    left:0px;
+}
+#concept{
+  position:absolute;
+    top:45px;
+    left:15%;
+}
+#product{
+  position:absolute;
+    top:45px;
+    left:30%;
+}
+#service{
+  position:absolute;
+    top:45px;
+    left:45%;
+}
+#stores{
+  position:absolute;
+    top:45px;
+    left:60%;
+}
+#contact{
+  position:absolute;
+    top:45px;
+    left:75%;
+}
+
+/*做螢幕調整用的部分設定
+#news, #concept, #product, #service, #stores, #contact{
+  display:block;
+  width: 40%;
+  height:50px;
+  text-align:center;
+  line-height: 50px;
+  color: rgba(0,0,0,0.4);
+  float: left;
+  font-size: 12px;
+}
+#news:hover,
+#concept:hover,
+#product:hover,
+#service:hover,
+#stores:hover,
+#contact:hover{
+  border-bottom: solid #1a1a1a 5px;
+  color: black;
+}
+#news{
+  position:absolute;
+    top:45px;
+    left:0px;
+}
+#concept{
+  position:absolute;
+    top:45px;
+    left:40%;
+}
+#product{
+  position:absolute;
+    top:45px;
+    left:80%;
+}
+#service{
+  position:absolute;
+    top:45px;
+    left:120%;
+}
+#stores{
+  position:absolute;
+    top:45px;
+    left:160%;
+}
+#contact{
+  position:absolute;
+    top:45px;
+    left:200%;
+}*/
+
+
+
+
+
+
+
+@media screen and (max-width: 1000px) {
+/*// 如果使用者視窗寬度 <= 480px，將字體大小變為 16px*/
+b {
+ /*font-size: 16px;*/
+color: yellow;
+}
+}
