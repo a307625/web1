@@ -76,7 +76,7 @@ a{
   width: 100%;
 }
 #topbar{
-  height: 100px;
+  height: 120px;
   position:absolute;
   top: 0%;
   left: 0%;
@@ -85,7 +85,7 @@ a{
 #content{
   height: 100px;
   position:absolute;
-  top:100px;
+  top:120px;
   left: 0%;
   right: 0%;
 }
@@ -99,37 +99,66 @@ a{
 
 
 #logo{
-  width: 10%;
+  width: 9.29%;
   position:absolute;
-    top:0%;
-    left:10%;
+    top:60px;
+    left:18%;
 }
 #logo:hover{
   cursor: pointer;
 }
+
 #select{
   width: 50%;
-  position:relative;
+  /*position:relative;*/
   position:absolute;
   top:0%;
   left:30%;
 }
-#link{
-  width: 300px;
+#search{
+  width: 10%;
   position:absolute;
-    top:0%;
-    left:40%;
+  /*float: left;*/
+  top:86px;
+  left:85.5%;
+  position:relative;
+}
+
+#link{
+  width: 1.19%;
+  position:absolute;
+  top:86px;
+  left:87%;
 }
 
 
 
+
+#srchInput{
+  width: 0px;
+  -webkit-transition: width 1s; /* For Safari 3.1 to 6.0 */
+  transition: width 1s;
+  position:absolute;
+  border-top: none;
+  border-bottom: solid 1px rgb(127,127,127);
+  border-left: none;
+  border-right: none;
+}
+
+#srchPic{
+  position:absolute;
+}
+#srchPic:hover{
+  cursor: pointer;
+}
+
+
 #news, #concept, #product, #service, #stores, #contact{
   display:block;
-  width: 15%;
   height:50px;
   text-align:center;
-  line-height: 70px;
-  color: rgba(0,0,0,0.4);
+  line-height: 60px;
+  color: rgb(127,127,127);
   float: left;
   font-size: 12px;
 }
@@ -139,38 +168,45 @@ a{
 #service:hover,
 #stores:hover,
 #contact:hover{
-  border-bottom: solid #1a1a1a 5px;
-  color: black;
+  border-bottom: solid #1a1a1a 3px;
+  color: rgb(0,0,0);
+  font-weight: bold;
 }
 #news{
   position:absolute;
-    top:45px;
-    left:0px;
+  width: 11.9%;
+  top:67px;
+  left:0px;
 }
 #concept{
   position:absolute;
-    top:45px;
-    left:15%;
+  width: 16.07%;
+  top:67px;
+  left:11.9%;
 }
 #product{
   position:absolute;
-    top:45px;
-    left:30%;
+  width: 16.07%;
+  top:67px;
+  left:27.97%;
 }
 #service{
   position:absolute;
-    top:45px;
-    left:45%;
+  width: 16.07%;
+  top:67px;
+  left:44.04%;
 }
 #stores{
   position:absolute;
-    top:45px;
-    left:60%;
+  width: 14.64%;
+  top:67px;
+  left:58.68%;
 }
 #contact{
   position:absolute;
-    top:45px;
-    left:75%;
+  width: 16.07%;
+  top:67px;
+  left:74.75%;
 }
 
 /*做螢幕調整用的部分設定
@@ -227,6 +263,9 @@ a{
 
 
 
+#TT {
+    color: red;
+}
 
 
 
