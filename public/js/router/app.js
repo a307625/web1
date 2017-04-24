@@ -4,7 +4,7 @@
 
     this.around(function(callback) {
       var context = this
-      this.load('../../html/page/data/articles.json')
+      this.load('../../html/page/data/news.json')
           .then(function(items) {
             context.items = items
           })
@@ -15,7 +15,7 @@
     this.get('/test', function(context) {
       context.app.swap('')
       $.each(this.items, function(i, item) {
-        context.render('html/page/templates/article.template', {id: i, item: item})
+        context.render('html/page/templates/news.template', {id: i, item: item})
                .appendTo(context.$element())
       })
     })
@@ -24,7 +24,7 @@
     this.get('#/home/', function(context) {
       context.app.swap('')
       $.each(this.items, function(i, item) {
-        context.render('html/page/templates/article.template', {id: i, item: item})
+        context.render('html/page/templates/news.template', {id: i, item: item})
                .appendTo(context.$element())
       })
     })
@@ -35,7 +35,7 @@
         console.log('NNNNNN');
         context.app.swap('')
         $.each(this.items, function(i, item) {
-          context.render('html/page/templates/article.template', {id: i, item: item})
+          context.render('html/page/templates/news.template', {id: i, item: item})
                  .appendTo(context.$element())
         })
     })

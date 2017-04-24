@@ -1,0 +1,6 @@
+<article>
+  <section>
+    <a href="#/news/<%= id %>"><h2><%= item.title %></h2></a>
+    <a href="#/news/<%= id %>"><h2><%= item.title %></h2></a>
+  </section>
+</article>

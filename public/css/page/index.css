@@ -64,6 +64,8 @@ table {
 
 body{
   font-family: 'Helvetica', 'Arial', sans-serif;
+  margin: 0;
+  padding: 0px;
 }
 div{
   float:left;
@@ -74,27 +76,30 @@ a{
 }
 #topbar, #content, #bottombar{
   width: 100%;
+  float: left;
 }
 #topbar{
   height: 120px;
-  position:absolute;
+  position:relative;
   top: 0%;
   left: 0%;
   right: 0%;
 }
 #content{
-  height: 100px;
-  position:absolute;
-  top:120px;
+  /*height: 100px;*/
+  position:relative;
+  /*top:120px;*/
   left: 0%;
   right: 0%;
+  background-color: yellow;
 }
 #bottombar{
-  height: 100px;
-  position:absolute;
-  top:200px;
+  height: 300px;
+  position:relative;
+  /*top:200px;*/
   left: 0%;
   right: 0%;
+  background-color: rgb(234,234,234);
 }
 
 
@@ -155,7 +160,7 @@ a{
 
 #news, #concept, #product, #service, #stores, #contact{
   display:block;
-  height:50px;
+  height:52px;
   text-align:center;
   line-height: 60px;
   color: rgb(127,127,127);
@@ -209,6 +214,84 @@ a{
   left:74.75%;
 }
 
+
+#bottomP1{
+  position:absolute;
+  width: auto;
+  top:65px;
+  left:18%;
+}
+#bottomP2{
+  position:absolute;
+  top:65px;
+  left:28%;
+  color: rgb(127,127,127);
+}
+
+#bottomP3{
+  position:absolute;
+  top:65px;
+  left:38%;
+  color: rgb(127,127,127);
+}
+
+#bottomP4{
+  position:absolute;
+  top:65px;
+  left:48%;
+  color: rgb(127,127,127);
+}
+
+#bottomP5{
+  position:absolute;
+  top:65px;
+  left:58%;
+  color: rgb(127,127,127);
+}
+
+#bottomP6{
+  position:absolute;
+  top:200px;
+  left:18%;
+  color: rgb(127,127,127);
+}
+
+#bottomP1_a,
+#bottomP1_b,
+#bottomP1_c,
+#bottomP1_d,
+#bottomP2_a{
+  color: rgb(127,127,127);
+  font-size: 14px;
+}
+#product1,
+#product2,
+#product3,
+#product4,
+#product5,
+#product6,
+#product7,
+#product8,
+#product9{
+  color: rgb(127,127,127);
+  font-size: 13px;
+}
+
+#bottomP5_a,
+#bottomP5_b,
+#bottomP5_c{
+  color: rgb(127,127,127);
+  font-size: 14px;
+}
+
+#bottomP1_5_1{
+  color: rgb(127,127,127);
+  font-size: 10px;
+}
+/*#bottomP1_2{
+  position:absolute;
+  top:20px;
+}*/
 /*做螢幕調整用的部分設定
 #news, #concept, #product, #service, #stores, #contact{
   display:block;
